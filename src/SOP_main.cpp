@@ -15,6 +15,15 @@ public:
 	virtual ~PROJECT_NAME()
 	{}
 
+	void setupParameters(OP_ParameterManager* manager) override
+	{}
+
+	void getGeneralInfo(SOP_GeneralInfo* ginfo) override
+	{
+		ginfo->cookEveryFrameIfAsked = true;
+		ginfo->directToGPU = false;
+	}
+
 	void execute(SOP_Output* output, OP_Inputs* inputs, void* reserved) override
 	{}
 

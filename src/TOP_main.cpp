@@ -15,6 +15,19 @@ public:
 	virtual ~PROJECT_NAME()
 	{}
 
+	void setupParameters(OP_ParameterManager* manager) override
+	{}
+
+	void getGeneralInfo(TOP_GeneralInfo* ginfo) override
+	{
+		ginfo->cookEveryFrame = true;
+	}
+
+	void getOutputFormat(TOP_OutputFormat* format)
+	{
+		return false;
+	}
+
 	void execute(const TOP_OutputFormatSpecs* outputFormat, OP_Inputs* inputs, TOP_Context *context) override
 	{}
 

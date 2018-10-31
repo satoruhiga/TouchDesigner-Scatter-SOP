@@ -15,6 +15,16 @@ public:
 	virtual ~PROJECT_NAME()
 	{}
 
+	void setupParameters(OP_ParameterManager* manager) override
+	{}
+
+	void getGeneralInfo(CHOP_GeneralInfo* ginfo) override
+	{
+		ginfo->cookEveryFrameIfAsked = true;
+		ginfo->timeslice = true;
+		ginfo->inputMatchIndex = 0;
+	}
+
 	void execute(const CHOP_Output* output, OP_Inputs* inputs, void*) override
 	{}
 
