@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 2.8)
 
 ###
 
-project(TestCHOP)
+project(ScatterSOP)
 
-set(OPERATOR_TYPE_CHOP 1)
+set(OPERATOR_TYPE_CHOP 0)
 set(OPERATOR_TYPE_TOP 0)
-set(OPERATOR_TYPE_SOP 0)
+set(OPERATOR_TYPE_SOP 1)
 
 file(GLOB SRC
 	"src/*.cpp"
