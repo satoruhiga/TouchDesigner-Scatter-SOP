@@ -74,6 +74,9 @@ public:
 		size_t numpt = input->getNumPoints();
 		size_t numprims = input->getNumPrimitives();
 
+		if (numprims == 0)
+			return;
+
 		const vec3* positions = (const vec3*)input->getPointPositions();
 
 		float area_sum = 0;
@@ -114,6 +117,7 @@ public:
 
 			auto it = std::upper_bound(areas.begin(), areas.end(), r);
 			size_t primnum = std::distance(areas.begin(), it);
+			primnum = std::min(primnum, numprims - 1);
 
 			const auto& prim_info = input->getPrimitive(primnum);
 
