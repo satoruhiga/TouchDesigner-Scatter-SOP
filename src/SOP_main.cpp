@@ -151,7 +151,7 @@ public:
 		return vec3(x, y, z);
 	}
 
-	void executeVBO(SOP_VBOOutput*, OP_Inputs*, void* reserved) override
+	void executeVBO(SOP_VBOOutput* output, OP_Inputs*, void* reserved) override
 	{}
 };
 

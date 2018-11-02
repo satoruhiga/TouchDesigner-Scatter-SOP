@@ -15,19 +15,27 @@ public:
 	virtual ~PROJECT_NAME()
 	{}
 
-	void setupParameters(OP_ParameterManager* manager) override
-	{}
-
-	void getGeneralInfo(CHOP_GeneralInfo* ginfo) override
+	bool getOutputInfo(CHOP_OutputInfo* info) override
 	{
-		ginfo->cookEveryFrameIfAsked = true;
-		ginfo->timeslice = true;
-		ginfo->inputMatchIndex = 0;
+		info->numSamples = 600;
+		info->numChannels = 1;
+
+		return true;
+	}
+
+	const char*	getChannelName(int32_t index, void* reserved) override
+	{
+		return "chan1";
 	}
 
 	void execute(const CHOP_Output* output, OP_Inputs* inputs, void*) override
-	{}
-
+	{
+		for (int i = 0; i < output->numSamples; i++)
+		{
+			float d = (float)i / (output->numSamples - 1);
+			output->channels[0][i] = sin(d * 3.1415 * 2);
+		}
+	}
 };
 
 ////
